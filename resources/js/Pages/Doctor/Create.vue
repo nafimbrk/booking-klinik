@@ -1,0 +1,67 @@
+<script setup>
+import { useForm } from "@inertiajs/vue3";
+import { route } from "ziggy-js";
+import Layout from "../Layout/Layout.vue";
+
+const form = useForm({
+    name: "",
+    specialization: "",
+    bio: "",
+});
+
+const createDoctor = () => {
+    form.post(route('doctors.store'))
+}
+</script>
+
+<template>
+  <Layout>
+    <div class="max-w-2xl mx-auto bg-white p-6 rounded-xl shadow">
+      <h1 class="text-2xl font-semibold mb-4">Tambah Dokter</h1>
+      <form @submit.prevent="createDoctor" class="space-y-4">
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700">Nama</label>
+          <input
+            type="text"
+            id="name"
+            v-model="form.name"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="specialization" class="block text-sm font-medium text-gray-700">Spesialis</label>
+          <input
+            type="text"
+            id="specialization"
+            v-model="form.specialization"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="bio" class="block text-sm font-medium text-gray-700">Bio</label>
+          <textarea
+            id="bio"
+            v-model="form.bio"
+            rows="4"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Tuliskan bio singkat dokter..."
+          ></textarea>
+        </div>
+
+        <div class="flex justify-end">
+          <button
+            type="submit"
+            class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+          >
+            Tambah
+          </button>
+        </div>
+      </form>
+    </div>
+  </Layout>
+</template>
+
