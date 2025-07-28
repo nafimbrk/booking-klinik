@@ -30,7 +30,7 @@ const editDoctor = () => {
             type="text"
             id="name"
             v-model="form.name"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            class="mt-1 px-3 py-1.5 text-sm block w-full rounded-md border border-gray-400 shadow-sm focus:ring-blue-500 focus:border-blue-500"
             required
           />
         </div>
@@ -41,7 +41,7 @@ const editDoctor = () => {
             type="text"
             id="specialization"
             v-model="form.specialization"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            class="mt-1 px-3 py-1.5 text-sm block w-full rounded-md border border-gray-400 shadow-sm focus:ring-blue-500 focus:border-blue-500"
             required
           />
         </div>
@@ -52,7 +52,7 @@ const editDoctor = () => {
             id="bio"
             v-model="form.bio"
             rows="4"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            class="mt-1 px-3 py-1.5 text-sm block w-full rounded-md border border-gray-400 shadow-sm focus:ring-blue-500 focus:border-blue-500"
             placeholder="Tuliskan bio singkat dokter..."
           ></textarea>
         </div>

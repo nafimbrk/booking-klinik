@@ -10,7 +10,9 @@ defineProps({
 const form = useForm({})
 
 const deleteDoctor = (id) => {
-    form.delete(route('doctors.destroy', id))
+    if(confirm('Yakin?')) {
+        form.delete(route('doctors.destroy', id))
+    }
 }
 
 </script>
@@ -47,7 +49,7 @@ const deleteDoctor = (id) => {
     </svg>
     <span>{{ $page.props.flash.success }}</span>
   </div>
-  <button @click="$page.props.flash.success = null" class="text-green-700 hover:text-green-900">
+  <button @click="$page.props.flash.success = null" class="text-green-700 hover:text-green-900 text-xl">
     &times;
   </button>
 </div>

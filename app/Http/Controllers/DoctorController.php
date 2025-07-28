@@ -9,7 +9,7 @@ class DoctorController extends Controller
 {
     public function index()
     {
-        $doctors = Doctor::select('id', 'name', 'specialization', 'bio')->get();
+        $doctors = Doctor::select('id', 'name', 'specialization', 'bio')->orderBy('id', 'desc')->get();
 
         return inertia('Doctor/Index', [
             'doctors' => $doctors
