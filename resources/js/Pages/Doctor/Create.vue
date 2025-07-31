@@ -5,6 +5,8 @@ import Layout from "../Layout/Layout.vue";
 
 const form = useForm({
     name: "",
+    email: "",
+    password: "",
     specialization: "",
     bio: "",
 });
@@ -25,6 +27,28 @@ const createDoctor = () => {
       type="text"
       id="name"
       v-model="form.name"
+      class="mt-1 px-3 py-1.5 text-sm block w-full rounded-md border border-gray-400 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+    <input
+      type="email"
+      id="email"
+      v-model="form.email"
+      class="mt-1 px-3 py-1.5 text-sm block w-full rounded-md border border-gray-400 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+    <input
+      type="password"
+      id="password"
+      v-model="form.password"
       class="mt-1 px-3 py-1.5 text-sm block w-full rounded-md border border-gray-400 shadow-sm focus:ring-blue-500 focus:border-blue-500"
       required
     />

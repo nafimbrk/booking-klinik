@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
     public function index()
     {
-        $doctors = Doctor::select('id', 'name', 'specialization', 'bio')->orderBy('id', 'desc')->get();
+        $doctors = Doctor::select('id', 'user_id', 'specialization', 'bio')->with('user')->orderBy('id', 'desc')->get();
 
         return inertia('Doctor/Index', [
             'doctors' => $doctors
@@ -25,12 +26,22 @@ class DoctorController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
             'specialization' => 'required',
             'bio' => 'nullable'
         ]);
 
+        $user = new User();
         $doctor = new Doctor();
-        $doctor->name = $request->name;
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->role = 'dokter';
+        $user->save();
+
+        $doctor->user_id = $user->id;
         $doctor->specialization = $request->specialization;
         $doctor->bio = $request->bio;
         $doctor->save();
@@ -40,10 +51,10 @@ class DoctorController extends Controller
 
     public function edit($id)
     {
-        $doctor = Doctor::find($id);
+        $doctor = Doctor::with('user')->find($id);
 
         return inertia('Doctor/Edit', [
-            'doctor' => $doctor
+            'doctor' => $doctor,
         ]);
     }
 

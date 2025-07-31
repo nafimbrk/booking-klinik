@@ -39,7 +39,7 @@ class ScheduleController extends Controller
         $schedule->end_time = $request->end_time;
         $schedule->save();
 
-        return redirect()->route('doctors.index')->with('success', 'data berhasil ditambahkan');
+        return redirect()->route('schedules.index')->with('success', 'data berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -56,6 +56,7 @@ class ScheduleController extends Controller
 
     public function update(Request $request, $id)
     {
+        dd('anjay');
         $request->validate([
             'doctor_id' => 'required',
             'day' => 'required',

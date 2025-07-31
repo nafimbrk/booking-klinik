@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Doctor extends Model
 {
-    protected $fillable = ['name', 'specialization', 'bio'];
+    protected $fillable = ['user_id', 'specialization', 'bio'];
 
     public function schedules()
     {
@@ -17,4 +17,10 @@ class Doctor extends Model
     {
         return $this->hasMany(Booking::class);
     }
+
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}
+
 }

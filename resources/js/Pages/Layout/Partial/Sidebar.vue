@@ -10,9 +10,9 @@ import { route } from 'ziggy-js';
       Admin Panel
     </div>
     <nav class="flex-1 px-4 py-2 space-y-2">
-      <a href="#" class="block py-2 px-3 rounded hover:bg-indigo-600">Dashboard</a>
-      <a :href="route('doctors.index')" class="block py-2 px-3 rounded hover:bg-indigo-600">Dokter</a>
-      <a :href="route('schedules.index')" class="block py-2 px-3 rounded hover:bg-indigo-600">Jadwal</a>
+      <Link href="#" class="block py-2 px-3 rounded hover:bg-indigo-600">Dashboard</Link>
+      <Link :href="route('doctors.index')" class="block py-2 px-3 rounded hover:bg-indigo-600">Dokter</Link>
+      <Link :href="route('schedules.index')" class="block py-2 px-3 rounded hover:bg-indigo-600">Jadwal</Link>
     </nav>
     <div class="p-4 border-t border-indigo-600">
       <button class="w-full text-left py-2 px-3 rounded hover:bg-indigo-600">Logout</button>

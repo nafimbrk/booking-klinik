@@ -4,11 +4,15 @@ import Layout from '../Layout/Layout.vue';
 import { route } from 'ziggy-js';
 
 const props = defineProps({
-    doctor: Object
+    doctor: Object,
 })
 
+console.log(props.doctor);
+
+
 const form = useForm({
-    name: props.doctor.name,
+    name: props.doctor.user.name,
+    email: props.doctor.user.email,
     specialization: props.doctor.specialization,
     bio: props.doctor.bio,
 });
@@ -34,6 +38,17 @@ const editDoctor = () => {
             required
           />
         </div>
+
+        <div>
+    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+    <input
+      type="email"
+      id="email"
+      v-model="form.email"
+      class="mt-1 px-3 py-1.5 text-sm block w-full rounded-md border border-gray-400 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+      required
+    />
+  </div>
 
         <div>
           <label for="specialization" class="block text-sm font-medium text-gray-700">Spesialis</label>
