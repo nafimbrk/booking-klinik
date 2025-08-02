@@ -66,8 +66,16 @@ class DoctorController extends Controller
             'bio' => 'nullable'
         ]);
 
+        $user = User::find($id);
         $doctor = Doctor::find($id);
-        $doctor->name = $request->name;
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        // $user->password = $request->password;
+        // $user->role = 'dokter';
+        $user->save();
+
+        $doctor->user_id = $user->id;
         $doctor->specialization = $request->specialization;
         $doctor->bio = $request->bio;
         $doctor->save();

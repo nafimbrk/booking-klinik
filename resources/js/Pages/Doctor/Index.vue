@@ -74,6 +74,11 @@ const deleteDoctor = (id) => {
                             <th
                                 class="px-4 py-2 text-left text-sm font-medium text-gray-600"
                             >
+                                Email
+                            </th>
+                            <th
+                                class="px-4 py-2 text-left text-sm font-medium text-gray-600"
+                            >
                                 Spesialis
                             </th>
                             <th
@@ -99,6 +104,9 @@ const deleteDoctor = (id) => {
                             </td>
                             <td class="px-4 py-2 text-sm text-gray-800">
                                 {{ doctor.user.name }}
+                            </td>
+                            <td class="px-4 py-2 text-sm text-gray-800">
+                                {{ doctor.user.email }}
                             </td>
                             <td class="px-4 py-2 text-sm text-gray-800">
                                 {{ doctor.specialization }}
